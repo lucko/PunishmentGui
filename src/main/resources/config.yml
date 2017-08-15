@@ -1,0 +1,34 @@
+# PunishmentGui Config
+
+# The source of punishment data
+# Currently supported: "litebans"
+source: litebans
+
+# Source configuration for LiteBans
+litebans-source:
+  sql:
+    address: "localhost"
+    port: 3306
+    database: "litebans"
+    username: "root"
+    password: "passw0rd"
+    table-prefix: "litebans_"
+
+offences:
+  hackedclient:
+    icon: IRON_SWORD
+    name: "&a&lHacked Client"
+    description:
+      - "&7The player is using malicious mods"
+      - "&7or hacked clients to cheat"
+
+    ladder-resolution:
+      search-for: ["bans"]
+      matching: ["%Hacked Client%"]
+      not-matching: []
+
+    ladder:
+      "1":
+        permission: punish.moderator
+        command: "ban {name} Hacked Client [Offence {offence_count}]"
+        output: "&c{name} has been permanently banned. Remember to post your evidence to the forums!"
