@@ -46,7 +46,7 @@ public class PunishmentGuiPlugin extends ExtendedJavaPlugin {
             .build();
 
     @Override
-    public void onEnable() {
+    public void enable() {
 
         // load sql
         sql = getService(SqlProvider.class);

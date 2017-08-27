@@ -1,6 +1,6 @@
 package me.lucko.punishmentgui.source;
 
-import me.lucko.helper.terminable.TerminableRegistry;
+import me.lucko.helper.terminable.registry.TerminableRegistry;
 import me.lucko.punishmentgui.punishment.Punishment;
 
 import java.util.Optional;
@@ -11,7 +11,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * Represents a source of punishment history (a hook with a banning plugin)
  */
-public interface PunishmentSource extends TerminableRegistry {
+public interface PunishmentSource {
 
     /**
      * Gets the name of this punishment source

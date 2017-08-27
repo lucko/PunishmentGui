@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
-public class LiteBansPunishmentSource extends AbstractPunishmentSource implements PunishmentSource {
+public class LiteBansPunishmentSource implements PunishmentSource {
 
     private final HelperDataSource sql;
     private final String tablePrefix;
