@@ -147,7 +147,7 @@ public class PunishmentGui extends Gui {
                         for (String response : entry.getResponse()) {
                             String resp = response
                                     .replace("{offence_count}", Integer.toString(matchingCount + 1))
-                                    .replace("{name}", targetName.toString());
+                                    .replace("{name}", targetName);
 
                             getPlayer().sendMessage(resp);
                         }
