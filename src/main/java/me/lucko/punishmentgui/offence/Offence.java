@@ -7,7 +7,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
-import me.lucko.helper.utils.Color;
+import me.lucko.helper.text.Text;
 import me.lucko.helper.utils.ImmutableCollectors;
 import me.lucko.punishmentgui.punishment.Punishment;
 import me.lucko.punishmentgui.punishment.PunishmentType;
@@ -55,11 +55,11 @@ public class Offence {
 
         String name = section.getString("name");
         Preconditions.checkArgument(name != null, "name not present");
-        this.name = Color.colorize(name);
+        this.name = Text.colorize(name);
 
         List<String> description = section.getStringList("description");
         Preconditions.checkArgument(description != null && !description.isEmpty(), "description not present");
-        this.description = description.stream().map(Color::colorize).collect(ImmutableCollectors.toList());
+        this.description = description.stream().map(Text::colorize).collect(ImmutableCollectors.toList());
 
         List<String> searchFor = section.getStringList("ladder-resolution.search-for");
         Preconditions.checkArgument(searchFor != null && !searchFor.isEmpty(), "searchFor not present");
@@ -114,7 +114,7 @@ public class Offence {
             // permission command output
             String permission = ls.getString("permission", "");
             List<String> command = weakGetStringList(ls, "command").stream().collect(ImmutableCollectors.toList());
-            List<String> output = weakGetStringList(ls, "output").stream().map(Color::colorize).collect(ImmutableCollectors.toList());
+            List<String> output = weakGetStringList(ls, "output").stream().map(Text::colorize).collect(ImmutableCollectors.toList());
             ladder.put(pos, new LadderEntry(permission, command, output));
         }
 

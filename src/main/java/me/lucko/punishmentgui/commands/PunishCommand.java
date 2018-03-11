@@ -2,7 +2,7 @@ package me.lucko.punishmentgui.commands;
 
 import lombok.RequiredArgsConstructor;
 
-import me.lucko.helper.Scheduler;
+import me.lucko.helper.Schedulers;
 import me.lucko.helper.utils.Players;
 import me.lucko.punishmentgui.PunishmentGuiPlugin;
 import me.lucko.punishmentgui.gui.PunishmentGui;
@@ -63,7 +63,7 @@ public class PunishCommand implements CommandExecutor {
         }
 
         String finalTarget = target;
-        Scheduler.runAsync(() -> {
+        Schedulers.async().run(() -> {
             PunishmentSource punishmentSource = plugin.getPunishmentSource();
 
             if (uuid.get() == null) {
@@ -85,7 +85,7 @@ public class PunishCommand implements CommandExecutor {
 
             Players.msg(sender, "&cLoading punishment history. Please wait...");
             Set<Punishment> history = punishmentSource.getPunishmentHistory(player).join();
-            Scheduler.runSync(() -> {
+            Schedulers.sync().run(() -> {
                 if (!sender.isOnline()) {
                     plugin.getBeingPunished().invalidate(player);
                     return;

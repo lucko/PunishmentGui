@@ -1,6 +1,5 @@
 package me.lucko.punishmentgui.source;
 
-import me.lucko.helper.terminable.registry.TerminableRegistry;
 import me.lucko.punishmentgui.punishment.Punishment;
 
 import java.util.Optional;

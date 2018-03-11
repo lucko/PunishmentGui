@@ -1,6 +1,6 @@
 package me.lucko.punishmentgui.source;
 
-import me.lucko.helper.Scheduler;
+import me.lucko.helper.Schedulers;
 import me.lucko.helper.sql.DatabaseCredentials;
 import me.lucko.helper.sql.HelperDataSource;
 import me.lucko.helper.sql.SqlProvider;
@@ -57,7 +57,7 @@ public class LiteBansPunishmentSource implements PunishmentSource {
                 e.printStackTrace();
             }
             return Optional.empty();
-        }, Scheduler.async());
+        }, Schedulers.async());
     }
 
     @Override
@@ -75,7 +75,7 @@ public class LiteBansPunishmentSource implements PunishmentSource {
             }
 
             return ret;
-        }, Scheduler.async());
+        }, Schedulers.async());
     }
 
     private static void retrieveData(Set<Punishment> accumulator, UUID who, String table, PunishmentType type, Connection connection) throws SQLException {
